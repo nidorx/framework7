@@ -357,6 +357,7 @@ class Component {
       if (tree) {
         const newVNode = vdom(tree, this, false);
         this.vnode = patch(this.vnode, newVNode);
+        this.hook('onUpdated');
       }
     };
     this.__requestAnimationFrameId = window.requestAnimationFrame(() => {
